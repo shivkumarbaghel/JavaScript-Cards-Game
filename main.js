@@ -195,7 +195,6 @@ function isAnyWin(player, i) {
                 isWin = winner(player, i);
             }
         } else {
-            // (parseInt(cardVal1) >= 10 ||  parseInt(cardVal2) >= 10  || parseInt(cardVal3) >= 10) && 
             if (hasDuplicates([cardVal1, cardVal2, cardVal3])) {
                 if ((parseInt(cardVal1) === 10 && parseInt(cardVal2) === 10) && (parseInt(cardVal2) === 10 && parseInt(cardVal3) === 10) || (parseInt(cardVal1) === 10 && parseInt(cardVal3) === 10)) {
                     isWin = winner(player, i);
