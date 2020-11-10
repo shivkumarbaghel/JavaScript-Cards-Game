@@ -43,18 +43,18 @@
                         <h1>A</h1>
                         <div id="player-1-deck"></div>
                     </div>
-                    <div id="player-2" class="text-dark p-3">
-                        <h1>B</h1>
-                        <div id="player-2-deck"></div>
+                    <div id="player-3" class="text-dark p-3">
+                        <h1>C</h1>
+                        <div id="player-3-deck"></div>
                     </div>
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4 border border-secondary text-light bg-secondary p-5 rounded progress-bar-striped bg-info" id="table">
                     <h3>Table</h3>
                 </div>
-                <div class="col-sm-4 col-md-4 col-lg-4 p-8">
-                    <div id="player-3" class="text-dark p-3">
-                        <h1>C</h1>
-                        <div id="player-3-deck"></div>
+                <div class="col-sm-4 col-md-4 col-lg-4 text-right p-8">
+                    <div id="player-2" class="text-dark p-3">
+                        <h1>B</h1>
+                        <div id="player-2-deck"></div>
                     </div>
                     <div id="player-4" class="text-dark p-3">
                         <h1>D</h1>
@@ -64,8 +64,16 @@
             </div>
         </div>
         <div class="deck">
-            <h1>A Deck of Cards</h1>
-            <a href="javascript:void(0)" class="shuffle-btn" onclick="shuffle()">Shuffle</a>
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 text-left pl-5">
+                   <h2>Cards Deck</h2>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6 text-right">
+                   <a href="javascript:void(0)" class="shuffle-btn btn-sm" onclick="shuffle()">Shuffle</a>
+                </div>
+            </div>
+            <!-- <h3>Cards Deck</h3>
+            <a href="javascript:void(0)" class="shuffle-btn btn-sm" onclick="shuffle()">Shuffle</a> -->
             <div id="deck"></div>
         </div>
     </div>
