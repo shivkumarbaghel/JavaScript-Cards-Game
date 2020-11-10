@@ -24,7 +24,18 @@
     <div class="container-fluid">
         <h4>1. Please click on each card to drop the card on the table.</h4>
         <h4>2. Refresh the page for a New Game</h4> <br />
-        <h5 class="text-muted">NOTE: on start of application 3 cards to each player will be distributed automatically, so there will be a chance where the player will win initially marked green background.</h5>
+        <h5>Victory Rules : </h5>
+        <ul>
+            <li> A trail (three cards of the same number) is the highest possible combination. <button type="button" class="btn btn-outline-dark btn-sm" onclick="test('1')">Test</button>
+</li>
+            <li> The next highest is a sequence (numbers in order, e.g., 4,5,6. A is considered to have a value of 1). <button type="button" class="btn btn-outline-dark btn-sm" onclick="test('2')">Test</button></li>
+            <li> The next highest is a pair of cards (e.g.: two Kings or two 10s). <button type="button" class="btn btn-outline-dark btn-sm" onclick="test('3')">Test</button></li>
+            <li> If all else fails, the top card (by number value wins). </li>
+            <li> If the top card has the same value, each of the tied players draws a single card from the deck until a winner is found.Test</button></li>
+            <li> Only the newly drawn cards are compared to decide a tie. The top card wins a tie.</li>
+            <li> For now the suit (spades/hearts etc...), does not matter.</li>
+        </ul>
+                <h5 class="text-muted">NOTE: on start of application 3 cards to each player will be distributed automatically, so there will be a chance where the player will win initially marked green background.</h5>
         <div class="mt-5 p-10">
             <div class="row mx-auto">
                 <div class="col-sm-4 col-md-4 col-lg-4 p-8">
@@ -37,7 +48,7 @@
                         <div id="player-2-deck"></div>
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-4 col-lg-4 border border-secondary text-light bg-secondary p-5" id="table">
+                <div class="col-sm-4 col-md-4 col-lg-4 border border-secondary text-light bg-secondary p-5 rounded progress-bar-striped bg-info" id="table">
                     <h3>Table</h3>
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4 p-8">
@@ -54,7 +65,7 @@
         </div>
         <div class="deck">
             <h1>A Deck of Cards</h1>
-            <a href="javascript:void(0)" class="btn" onclick="shuffle()">Shuffle</a>
+            <a href="javascript:void(0)" class="shuffle-btn" onclick="shuffle()">Shuffle</a>
             <div id="deck"></div>
         </div>
     </div>

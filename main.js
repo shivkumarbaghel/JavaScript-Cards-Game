@@ -165,6 +165,7 @@ function drawCardOnTable(player, card) {
  * check if player has winning cards
  */
 function isAnyWin(player, i) {
+    console.log('isAnyWin : ', player ,' - i : ', i);
     var cards = player['cards'];
     var cardVal1 = cards[0]['Value'],
         cardVal2 = cards[1]['Value'],
@@ -213,9 +214,11 @@ function isAnyWin(player, i) {
  * decorate winner Player with green background
  */
 function winner(player, i) {
-    alert('player Wins ' + player['name']);
+    // alert('player Wins ' + player['name']);
     document.getElementById('player-' + i).className = 'text-light p-3 progress-bar-striped bg-success';
-    document.getElementById('player-' + i).querySelector("h1").innerHTML = document.getElementById('player-' + i).querySelector("h1").innerHTML +' - Winner';
+    var txt = document.getElementById('player-' + i).querySelector("h1").innerHTML;
+    document.getElementById('player-' + i).querySelector("h1").innerHTML = '';
+    document.getElementById('player-' + i).querySelector("h1").innerHTML = player.name  +' - Winner';
     return true;
 }
 
@@ -234,15 +237,49 @@ function hasDuplicates(array) {
     return false;
 }
 
+/*
+ * check it's a character only
+ */
 function isLetter(c) {
     return c.toLowerCase() != c.toUpperCase();
 }
 
+
+/*
+ * start the game
+ */
 function start() {
     loadDeck();
     assignCardsToEach();
 }
 
+/*
+ * Test the game rules
+ */
+function test(ruleType) {
+    console.log('test', ruleType);
+    var card = {} , player = 0;
+    if (ruleType === '1') {
+        card = { name: "A", cards: [{Value: "10", Suit: "clubs"}, {Value: "10", Suit: "diamonds"}, {Value: "10", Suit: "hearts" }] };
+    } else if(ruleType === '2') {
+        card = { name: "A", cards: [{Value: "4", Suit: "diamonds"}, {Value: "5", Suit: "hearts"}, {Value: "6", Suit: "hearts"}] };
+    } else if(ruleType === '3') {
+        card = { name: "A", cards: [{Value: "2", Suit: "spades"}, {Value: "K", Suit: "diamonds"}, {Value: "K", Suit: "hearts"}] };
+    }
+
+    players[0]['cards'] = card.cards;
+    renderPlayerCards();
+        // for (var k = 0; k < card.cards.length; k++) {
+        //     document.getElementById('player-' + (player + 1) + '-deck').innerHTML = '';
+        //     document.getElementById('player-' + (player + 1) + '-deck').appendChild(createCardElem(cards[k], player+1));
+        // }
+    // createCardElem(card, player);
+    isAnyWin(card, player + 1);
+}
+
+/*
+ * on page load load the deck of cards and assign the cards to each player
+ */
 window.onload = function() {
     loadDeck();
     assignCardsToEach();
