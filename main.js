@@ -257,7 +257,6 @@ function start() {
  * Test the game rules
  */
 function test(ruleType) {
-    console.log('test', ruleType);
     var card = {} , player = 0;
     if (ruleType === '1') {
         card = { name: "A", cards: [{Value: "10", Suit: "clubs"}, {Value: "10", Suit: "diamonds"}, {Value: "10", Suit: "hearts" }] };
@@ -269,11 +268,6 @@ function test(ruleType) {
 
     players[0]['cards'] = card.cards;
     renderPlayerCards();
-        // for (var k = 0; k < card.cards.length; k++) {
-        //     document.getElementById('player-' + (player + 1) + '-deck').innerHTML = '';
-        //     document.getElementById('player-' + (player + 1) + '-deck').appendChild(createCardElem(cards[k], player+1));
-        // }
-    // createCardElem(card, player);
     isAnyWin(card, player + 1);
 }
 
